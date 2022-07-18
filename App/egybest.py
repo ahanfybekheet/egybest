@@ -74,7 +74,7 @@ def download(url,quality):
     
     driver.switch_to.window(driver.window_handles[-1])
     SOURCE = driver.find_element(By.XPATH,'//*[@id="video_html5_api"]/source').get_attribute("src") #Get Video Source
-    if len(SOURCE)<260:
+    if len(SOURCE)<300:
         download(url,quality)
     driver.quit()
     return [SOURCE,NAME]

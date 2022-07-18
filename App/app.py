@@ -21,8 +21,8 @@ class Worker(QObject):
     finished = pyqtSignal() #Initialize signal To use it as thing to tell thread that worker has finished
     setProgressValue = pyqtSignal(str)
     def __init__(self,movie_link:str = '',quality:str = ''):
-        ''':movie_link: To use it in Movie instance 
-           :quality: To use it in Movie instance '''
+        ''' :movie_link: To use it in Movie instance 
+            :quality: To use it in Movie instance '''
         super().__init__()
         self.movie_link = movie_link #To be able to call in run function
         self.quality = quality       #To be able to call in run function
@@ -30,7 +30,6 @@ class Worker(QObject):
     def run(self):
         global data
         data = download(self.movie_link,self.quality)
-    
         self.finished.emit()
 
         

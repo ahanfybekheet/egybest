@@ -2,4 +2,4 @@
 ---------------------------
  - search for movie on egybest
  - choose quality 
- - download the movie [x] 
+ - download the movie 

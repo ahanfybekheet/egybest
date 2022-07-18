@@ -1,6 +1,6 @@
 # EgyBest Movie Downloader
 
-## How it work
+## How it work for developers
 
  ### Create by combine of pyqt and selenium
   - create design of the application with pyqt5 designer application
@@ -20,7 +20,7 @@
   
 
 
-## How it already work
+## How it work for enduser
  - search for movie on egybest
  - choose quality 
  - download the movie 

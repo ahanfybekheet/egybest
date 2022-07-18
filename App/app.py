@@ -18,8 +18,10 @@ from egybest import (
 )
 
 class Worker(QObject):
+
     finished = pyqtSignal() #Initialize signal To use it as thing to tell thread that worker has finished
-    setProgressValue = pyqtSignal(str)
+    setProgressValue = pyqtSignal(str) #Initialize signal to use it as thing that send the value of label text
+
     def __init__(self,movie_link:str = '',quality:str = ''):
         ''' :movie_link: To use it in Movie instance 
             :quality: To use it in Movie instance '''
@@ -28,13 +30,15 @@ class Worker(QObject):
         self.quality = quality       #To be able to call in run function
 
     def run(self):
-        global data
-        data = download(self.movie_link,self.quality)
+        '''get source of the movie'''
+        global data #Make it global to use it in run2
+        data = download(self.movie_link,self.quality) 
         self.finished.emit()
 
         
 
     def run2(self):
+        '''download the movie with request library'''
         r= requests.get(data[0],stream=True)
         f_size = 0
         with open(f'{data[1]}.mp4', 'wb') as f: 
